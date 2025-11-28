@@ -4,20 +4,38 @@
     <div class="col-md-5">
       <h2 class="text-center mb-4">Register Here</h2>
 
-      <form name="register-form" class="p-4 bg-white shadow rounded">
+      <form (ngSubmit)="onSubmit()" #registerForm="ngForm" class="p-4 bg-white shadow rounded">
         <div class="mb-3">
           <label class="form-label">Enter Name</label>
-          <input type="text" class="form-control" name="name" placeholder="Enter name" />
+          <input
+            type="text"
+            class="form-control"
+            name="name"
+            [(ngModel)]="users.name"
+            placeholder="Enter name"
+          />
         </div>
 
         <div class="mb-3">
           <label class="form-label">Enter Phone</label>
-          <input type="tel" class="form-control" name="phone" placeholder="Enter phone" />
+          <input
+            type="tel"
+            class="form-control"
+            name="phone"
+            [(ngModel)]="users.phone"
+            placeholder="Enter phone"
+          />
         </div>
 
         <div class="mb-3">
           <label class="form-label">Enter Email</label>
-          <input type="email" class="form-control" name="email" placeholder="Enter email" />
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            [(ngModel)]="users.email"
+            placeholder="Enter email"
+          />
         </div>
 
         <div class="mb-3">
@@ -26,7 +44,19 @@
             type="password"
             class="form-control"
             name="password"
+            [(ngModel)]="users.password"
             placeholder="Enter password"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Enter Account Number</label>
+          <input
+            type="number"
+            class="form-control"
+            name="accountNumber"
+            [(ngModel)]="users.accountNumber"
+            placeholder="Enter account number"
           />
         </div>
 
@@ -35,3 +65,23 @@
     </div>
   </div>
 </div>
+
+<h3>Registered Users:</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Account Number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of userList">
+      <td>{{ user.name }}</td>
+      <td>{{ user.phone }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.accountNumber }}</td>
+    </tr>
+  </tbody>
+</table>

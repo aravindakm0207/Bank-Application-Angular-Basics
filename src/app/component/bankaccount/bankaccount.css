@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.about {
+  background-color: whitesmoke;
+  padding: 6rem;
+}
+
+.bankaccount {
+  background-color: aqua;
+  margin-left: 20px;
+  margin-top: 4px;
+  width: 100%;
+}
+
+.accountTable {
+  padding: 3rem;
+  margin: 8px;
+  width: 90%;
+}
+
+.depositform {
+  margin: 6px;
+  margin: 0 auto;
+  height: 200px;
+  width: 90%;
+  background-color: burlywood;
+}

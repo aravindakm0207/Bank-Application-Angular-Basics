@@ -1,12 +1,12 @@
-import { Component, signal } from '@angular/core';
-import { JsonPipe } from '@angular/common';
+import { Component, signal, input, output } from '@angular/core';
+import { Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bankaccount',
-  imports: [JsonPipe, FormsModule],
+  imports: [FormsModule, NgFor],
   templateUrl: './bankaccount.html',
   styleUrl: './bankaccount.css',
 })
@@ -15,6 +15,21 @@ export class Bankaccount {
     { id: 1, name: 'Aravinda', balance: 1000, transactions: [] },
     { id: 2, name: 'Kohli', balance: 1000, transactions: [] },
   ]);
+
+  title = input('Hello This is bank website, and i am learning angular');
+  showButton() {
+    console.log('Button is clicked');
+    alert('This is pay Button');
+  }
+
+  label = input('');
+
+  btnclicked = output();
+  handleButtonClick() {
+    this.btnclicked.emit();
+  }
+
+  @Input() userdata: any[] = [];
   balance = signal(1000);
   depositAmount: number = 0;
 
